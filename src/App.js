@@ -2,15 +2,25 @@ import "./App.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Mousewheel, Keyboard } from "swiper";
+import { BsChevronDoubleDown } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
 function App() {
+  const pagination = {
+    "clickable": true,
+    "renderBullet": function (index, className) {
+  
+            return '<span class=\"' + className + '\">' + (index + 1) + '</span>';
+  
+    }
+  }
+
   return (
     <Swiper
       direction={"vertical"} // 슬라이드의 방향을 수직으로 설정합니다.
-      pagination={{ clickable: true }} // 우측의 점을 클릭했을 때, 클릭한 슬라이드로 이동하게 됩니다.
+      pagination={pagination} // 우측의 점을 클릭했을 때, 클릭한 슬라이드로 이동하게 됩니다.
       mousewheel // 마우스 휠 동작을 허용합니다.
       keyboard // 키보드 방향키에 의한 동작을 허용합니다.
       modules={[Pagination, Mousewheel, Keyboard]} // 페이지네이션, 마우스휠, 키보드 등을 사용하려면 모듈을 import해줘야 합니다.
@@ -24,7 +34,15 @@ function App() {
     >
       <SwiperSlide>
         <div className="All">
-          <h1 className="title">Yu-Gi-Oh!</h1>
+          <h1 className="title">
+            Yu-Gi-Oh!
+            <div className="down_zone">
+              <div className="down">
+                <span>Enter</span>
+                <BsChevronDoubleDown className="down_icon" />
+              </div>
+            </div>
+          </h1>
 
           <div className="card">
             <img src={require("./img/card.jpg")} alt="card" />
@@ -42,8 +60,6 @@ function App() {
       </SwiperSlide>
       <SwiperSlide>Slide 2</SwiperSlide>
       <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      <SwiperSlide>Slide 5</SwiperSlide>
     </Swiper>
   );
 }
