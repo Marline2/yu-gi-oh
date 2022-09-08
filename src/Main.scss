@@ -1,0 +1,122 @@
+
+  .Main {
+    background-color: rgb(71, 71, 255);
+
+    h1.title {
+      text-shadow: -10px 0 white, 0 10px white, 10px 0 white, 0 -10px white;
+      font-size: 3em;
+      width: 100vw;
+      margin: 4.5em 0em 0em 0em;
+      text-align: center;
+      position: absolute;
+      z-index: 5;
+    
+
+      &>.down_zone {
+        margin: 0.5em 0 0 0;
+        width: 100%;
+        height: 1.05em;
+        padding: 0.2em 0 0 0;
+
+        background-color: rgba(255, 255, 255, 0.4);
+
+        &>.down {
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          span {
+            font-size: 0.15em;
+            text-shadow: none;
+            display: none;
+            margin: 0 0 0 -1.5em;
+          }
+
+          .down_icon {
+            cursor: pointer;
+          }
+
+
+          &:hover {
+            .down_icon {
+              animation: go_down 1s;
+              margin-top: 0.1em;
+            }
+
+            span {
+              display: block;
+              animation: show_span 1s;
+            }
+
+            @keyframes go_down {
+              from {
+                margin-top: 0em;
+              }
+
+              to {
+                margin-top: 0.1em;
+              }
+            }
+
+            @keyframes show_span {
+              from {
+                opacity: 0;
+              }
+
+              to {
+                opacity: 1;
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+
+    .card {
+      position: absolute;
+      text-align: center;
+      width: 100vw;
+      height: 100vh;
+      margin:0;
+
+      img {
+        width: 120px;
+        height: 180px;
+      }
+    }
+
+    .charactors {
+      position: relative;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      bottom: 0;
+      margin:0;
+
+
+      :nth-child(1) {
+        position: absolute;
+        width: 13em;
+        margin-left: -14em;
+        margin-top: 7em;
+      }
+
+      :nth-child(2) {
+        position: absolute;
+        width: 15em;
+        margin-left: -7em;
+        margin-top: -5em;
+        z-index: 1;
+      }
+
+      :nth-child(3) {
+        position: absolute;
+        width: 13em;
+        margin-left: 1em;
+        margin-top: 2em;
+      }
+    }
+  }
