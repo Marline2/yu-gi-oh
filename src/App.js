@@ -14,11 +14,9 @@ function App() {
           <li>Menu</li>
         </ul>
       </header>
-      <section>
-        <Routes>
-          <Route path="/" element={<Main />} />
-        </Routes>
-      </section>
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
     </div>
   );
 }
