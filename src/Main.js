@@ -58,20 +58,32 @@ function Main() {
         <h2>Menu</h2>
         <div className="clickable">
           <div>
-            <img src={require("./img/card.jpg")} alt="image_menu" />
-            <h4>Search Cards</h4>
+            <div className="img_size">
+              <img src={require("./img/menu1.png")} alt="image_menu" />
+            </div>
+            <h4>Top Cards</h4>
+            <p>These are the most commonly used cards in the Yu-Gi-Oh! TCG.</p>
           </div>
           <div>
-            <img src={require("./img/card.jpg")} alt="image_menu" />
-            <h4>Search Cards</h4>
+            <div className="img_size">
+              <img src={require("./img/menu2.png")} alt="image_menu" />
+            </div>
+            <h4>Decks</h4>
+            <p>Search the Yu-Gi-Oh! Deck Respository.</p>
           </div>
           <div>
-            <img src={require("./img/card.jpg")} alt="image_menu" />
-            <h4>Search Cards</h4>
+            <div className="img_size">
+              <img src={require("./img/menu3.png")} alt="image_menu" />
+            </div>
+            <h4>Card Database</h4>
+            <p>Search the Yu-Gi-Oh! Cards</p>
           </div>
           <div>
-            <img src={require("./img/card.jpg")} alt="image_menu" />
-            <h4>Search Cards</h4>
+            <div className="img_size">
+              <img src={require("./img/menu4.png")} alt="image_menu" />
+            </div>
+            <h4>Articles</h4>
+            <p>TCG Articles written by YGOPRODECK's Author</p>
           </div>
         </div>
       </section>
@@ -81,37 +93,41 @@ function Main() {
           The following rule updates & clarifications (some of which have
           already been in effect) are in e ffect at in-person and remote duel
           events at all lev els. These will be incorporated into an upcoming
-          rulebook update. <br/><br/>
-          1. Fusion, Synchro, and Xyz Monsters can be first
-          Summoned from the Extra Deck to any of your Main Monster Zones. They
-          do not have to be Summoned to the Extra Monster Zone or a spot that a
-          Link Monster is pointing to. You can still Summon a Fusion/Synchro/Xyz
-          Monster from the Extra Deck to your Extra Monster Zone if you want to,
-          though. (The restrictions requiring an Extra Monster Zone or Link
-          Monster pointing still apply to Link Monsters and Pendulum Monsters
-          that are Summoned from the Extra Deck.) <br/><br/>
-          2. If a monster’s Trigger Effect
-          meets its a ctivation conditions, BUT hasn’t yet had a chance to
-          actually activate yet (because i t’s still in the middle of a chain or
-          card ef fect, for example) and is therefore being “saved for later”,
-          BUT its location* changes between the ti me its Trigger Effect
-          activation is met, and the tim e it actually has a chance to activate,
-          its effect does no t activate. [*On the field, in the Graveyard, in
-          the hand, banished, or in the Deck.] <br/><br/>
-          3. The restriction of “you cannot
-          Normal or S pecial Summon the turn you activate this card” only refers
-          to monsters that were successfully summ oned. Same for “you can only
-          Special Summon X once p er turn” restrictions. <br/><br/>
-          4. Trap Monsters that say
-          “This card is also st ill a Trap.” do not occupy both a Monster Zon e
-          and a Spell & Trap Zone. They are only in the Monster Zone (where the
-          card actually is) and do not take up a Spell & Trap Zone. <br/><br/>
-          5. Page 51 of
-          the rulebook, under “Leaves the F ield”: “When a monster on the field
-          is shuffled into t he Main Deck, or becomes an Xyz Material, it is no
-          longe r a card on the field, however its effects that activate when it
-          “leaves the field” will not activate.” “Main Deck” s hould be “Deck”
-          (and therefore also includes the Extra Deck).
+          rulebook update. <br />
+          <br />
+          1. Fusion, Synchro, and Xyz Monsters can be first Summoned from the
+          Extra Deck to any of your Main Monster Zones. They do not have to be
+          Summoned to the Extra Monster Zone or a spot that a Link Monster is
+          pointing to. You can still Summon a Fusion/Synchro/Xyz Monster from
+          the Extra Deck to your Extra Monster Zone if you want to, though. (The
+          restrictions requiring an Extra Monster Zone or Link Monster pointing
+          still apply to Link Monsters and Pendulum Monsters that are Summoned
+          from the Extra Deck.) <br />
+          <br />
+          2. If a monster’s Trigger Effect meets its a ctivation conditions, BUT
+          hasn’t yet had a chance to actually activate yet (because i t’s still
+          in the middle of a chain or card ef fect, for example) and is
+          therefore being “saved for later”, BUT its location* changes between
+          the ti me its Trigger Effect activation is met, and the tim e it
+          actually has a chance to activate, its effect does no t activate. [*On
+          the field, in the Graveyard, in the hand, banished, or in the Deck.]{" "}
+          <br />
+          <br />
+          3. The restriction of “you cannot Normal or S pecial Summon the turn
+          you activate this card” only refers to monsters that were successfully
+          summ oned. Same for “you can only Special Summon X once p er turn”
+          restrictions. <br />
+          <br />
+          4. Trap Monsters that say “This card is also st ill a Trap.” do not
+          occupy both a Monster Zon e and a Spell & Trap Zone. They are only in
+          the Monster Zone (where the card actually is) and do not take up a
+          Spell & Trap Zone. <br />
+          <br />
+          5. Page 51 of the rulebook, under “Leaves the F ield”: “When a monster
+          on the field is shuffled into t he Main Deck, or becomes an Xyz
+          Material, it is no longe r a card on the field, however its effects
+          that activate when it “leaves the field” will not activate.” “Main
+          Deck” s hould be “Deck” (and therefore also includes the Extra Deck).
         </p>
       </section>
       <section className="Info">
