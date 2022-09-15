@@ -9,9 +9,10 @@ function App() {
       <header>
         <h3>Yi-Gi-Oh!</h3>
         <ul>
-          <li>Main</li>
-          <li>Intro</li>
+          <li>Home</li>
           <li>Menu</li>
+          <li>Rules</li>
+          <li>Info</li>
         </ul>
       </header>
       <Routes>
