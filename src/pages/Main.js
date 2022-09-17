@@ -1,30 +1,38 @@
 import "../scss/Main.scss";
-import YouTube from "react-youtube";
+import YouTube from "react-player";
 import Clock from "react-live-clock";
+import React from "react";
 
 function Main() {
   return (
     <div className="All">
+      <header>
+        <h3>Yi-Gi-Oh!</h3>
+        <ul>
+          <li
+            onClick={() =>
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+            }
+          >
+            Home
+          </li>
+          <li>Menu</li>
+          <li>Rules</li>
+          <li>Info</li>
+        </ul>
+      </header>
       <section className="Home">
         <div className="title">
           <h1>Yu-Gi-Oh!</h1>
           <div className="white_zone">
             <div className="youtube">
               <YouTube
-                videoId="auAQ_A--c5I"
-                opts={{
-                  width: "100%",
-                  height: "270px",
-                  playerVars: {
-                    autoplay: 1,
-                    modestbranding: 1,
-                    loop: 1,
-                    playlist: "auAQ_A--c5I",
-                  },
-                }}
-                onReady={(e) => {
-                  e.target.mute();
-                }}
+              url={'https://www.youtube-nocookie.com/embed/auAQ_A--c5I'}
+              loop={true}
+              muted={true}
+              playing={true}
+              width='100%'
+              height='100%'
               />
             </div>
           </div>
@@ -96,17 +104,22 @@ function Main() {
           rel="noopener noreferrer"
         >
           2021 Rules Update
-          <span className="tooltip_right" onClick={(e)=>{e.preventDefault()}}>View official documents</span>
+          <span
+            className="tooltip_right"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          >
+            View official documents
+          </span>
         </a>
-        <p>
-            These will be incorporated into an upcoming
-            rulebook update.
-            <br /><br />
+        <p>These will be incorporated into an upcoming rulebook update.</p>
+          <br />
           <ol>
             <li>
-              Fusion, Synchro, and Xyz Monsters can be first Summoned from
-              the Extra Deck to any of your Main Monster Zones. They do not have
-              to be Summoned to the Extra Monster Zone or a spot that a Link
+              Fusion, Synchro, and Xyz Monsters can be first Summoned from the
+              Extra Deck to any of your Main Monster Zones. They do not have to
+              be Summoned to the Extra Monster Zone or a spot that a Link
               Monster is pointing to. You can still Summon a Fusion/Synchro/Xyz
               Monster from the Extra Deck to your Extra Monster Zone if you want
               to, though. (The restrictions requiring an Extra Monster Zone or
@@ -114,37 +127,36 @@ function Main() {
               Monsters that are Summoned from the Extra Deck.)
             </li>
             <li>
-              If a monster’s Trigger Effect meets its activation conditions,
-              BUT hasn’t yet had a chance to actually activate yet (because i
-              t’s still in the middle of a chain or card ef fect, for example)
-              and is therefore being “saved for later”, BUT its location*
-              changes between the ti me its Trigger Effect activation is met,
-              and the tim e it actually has a chance to activate, its effect
-              does no t activate. [*On the field, in the Graveyard, in the hand,
-              banished, or in the Deck.]{" "}
+              If a monster’s Trigger Effect meets its activation conditions, BUT
+              hasn’t yet had a chance to actually activate yet (because i t’s
+              still in the middle of a chain or card ef fect, for example) and
+              is therefore being “saved for later”, BUT its location* changes
+              between the ti me its Trigger Effect activation is met, and the
+              tim e it actually has a chance to activate, its effect does no t
+              activate. [*On the field, in the Graveyard, in the hand, banished,
+              or in the Deck.]{" "}
             </li>
             <li>
-              The restriction of “you cannot Normal or Special Summon the
-              turn you activate this card” only refers to monsters that were
+              The restriction of “you cannot Normal or Special Summon the turn
+              you activate this card” only refers to monsters that were
               successfully summ oned. Same for “you can only Special Summon X
               once p er turn” restrictions.
             </li>
             <li>
-              Trap Monsters that say “This card is also still a Trap.” do
-              not occupy both a Monster Zon e and a Spell & Trap Zone. They are
-              only in the Monster Zone (where the card actually is) and do not
-              take up a Spell & Trap Zone.
+              Trap Monsters that say “This card is also still a Trap.” do not
+              occupy both a Monster Zon e and a Spell & Trap Zone. They are only
+              in the Monster Zone (where the card actually is) and do not take
+              up a Spell & Trap Zone.
             </li>
             <li>
-              Page 51 of the rulebook, under “Leaves the Field”: “When a
-              monster on the field is shuffled into t he Main Deck, or becomes
-              an Xyz Material, it is no longe r a card on the field, however its
+              Page 51 of the rulebook, under “Leaves the Field”: “When a monster
+              on the field is shuffled into t he Main Deck, or becomes an Xyz
+              Material, it is no longe r a card on the field, however its
               effects that activate when it “leaves the field” will not
               activate.” “Main Deck” s hould be “Deck” (and therefore also
               includes the Extra Deck).
             </li>
           </ol>
-        </p>
       </section>
       <section className="Info">
         <h2>Info</h2>

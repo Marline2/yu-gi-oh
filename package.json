@@ -16,11 +16,10 @@
     "react-icons": "^4.4.0",
     "react-live-clock": "^6.0.6",
     "react-moment": "^1.1.2",
+    "react-player": "^2.11.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "react-youtube": "^9.0.3",
     "sass-loader": "^13.0.2",
-    "swiper": "^8.3.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
