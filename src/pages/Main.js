@@ -3,10 +3,18 @@ import YouTube from "react-player";
 import Clock from "react-live-clock";
 import React from "react";
 
+
 function Main() {
+  const [scrollPosition, setScrollPosition] = React.useState(0);
+  const updateScroll = () => {
+      setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  }
+  React.useEffect(()=>{
+      window.addEventListener('scroll', updateScroll);
+  });
   return (
     <div className="All">
-      <header>
+      <header className={scrollPosition<100?"original":"change"}>
         <h3>Yi-Gi-Oh!</h3>
         <ul>
           <li
