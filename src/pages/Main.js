@@ -47,10 +47,22 @@ function Main() {
         </div>
 
         <div className="card">
-          <img src={require("../img/card.jpg")} alt="card" />
-          <img src={require("../img/card.jpg")} alt="card" />
-          <img src={require("../img/card.jpg")} alt="card" />
-          <img src={require("../img/card.jpg")} alt="card" />
+          <div className="card1">
+            <img className="front" src={require("../img/card.jpg")} alt="card" />
+            <img className="back" src={require("../img/card1.png")} alt="card" />
+          </div>
+          <div className="card2">
+            <img className="front" src={require("../img/card.jpg")} alt="card" />
+            <img className="back" src={require("../img/card2.png")} alt="card" />
+          </div>
+          <div className="card3">
+            <img className="front" src={require("../img/card.jpg")} alt="card" />
+            <img className="back" src={require("../img/card3.png")} alt="card" />
+          </div>
+          <div className="card4">
+            <img className="front" src={require("../img/card.jpg")} alt="card" />
+            <img className="back" src={require("../img/card4.png")} alt="card" />
+          </div>
         </div>
 
         <div className="charactors">

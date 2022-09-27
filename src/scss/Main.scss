@@ -10,17 +10,14 @@ header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: rgb(36, 36, 36);
   color:white;
   position:fixed;
   z-index: 10;
   box-sizing: border-box;
   padding:0 20em;
   
-  
   >h3{
     width:fit-content;
-    font-size: 1em;
     min-width:5em;
   }
   
@@ -31,23 +28,36 @@ header{
     >li{
       display: inline;
       margin:0 1em;
-      font-size:0.8em;
       cursor: pointer;
     }
-    
   }
 }
 
 header.original{
-
+  transition: .3s;
+  background-color: rgba(36, 36, 36, 0);
+  height:5em;
+  h3{
+    font-size: 1.5em;
+  }
+  >ul{
+    padding-top:1em;
+  }
 }
 
 header.change{
- 
-}
-
-.nav-up{
-  background-color: aliceblue;
+  height:3.5em;
+  transition: .3s;
+  background-color: rgb(36, 36, 36);
+  >h3{
+    font-size: 1em;
+  }
+  
+  >ul{
+    >li{
+      font-size:0.8em;
+    }
+  }
 }
 
 section.Home {
@@ -77,10 +87,11 @@ section.Home {
         content: "";
         position: absolute;
         top: -3em;
-        width: calc(1920px/4);
-        height: 270px;
+        width: calc(1920px/5);
+        height: 215px;
         left: 50%;
         overflow: hidden;
+        background-color: black;
         transform: translate(-50%, 0%);
         border: 3px solid white;
       }
@@ -97,52 +108,70 @@ section.Home {
     height: 22.5em;
     margin: 0;
 
-    >img {
-      animation: up_down 2s alternate-reverse infinite;
+    img{
+      width: 120px;
+      height: 180px;
+    }
 
-      @keyframes up_down {
-        from {
-          margin-top: 0%;
-        }
+    .card1{
+      position: inherit;
+      left: 10em;
+      top: 10em;
+      perspective: 300px;
+      transform-style: preserve-3d;
 
-        to {
-          margin-top: 1%;
+      @keyframes change_img {
+        from{
+          .front{
+            transform: rotateY(0deg);
+          }
+          .back{
+            transform: rotateY(180deg);
+          }
         }
+        to{
+          .front{
+            transform: rotateY(180deg);
+          }
+          .back{
+            transform: rotateY(0deg);
+          }
+        }
+      }
+
+      >img{
+        backface-visibility: hidden;
+        transition: 2s;
+        animation: change_img 1s infinite;
+      }
+
+      >.front{
+        position: absolute;
+        transform: rotateY(0deg);
+      }
+      >.back{
+        position: absolute;
+        transform: rotateY(180deg);
       }
 
     }
 
-    :nth-child(1) {
+    .card2{
       position: inherit;
-      width: 120px;
-      height: 180px;
-      left: 5em;
-      top: 10em;
-    }
-
-    :nth-child(2) {
-      position: inherit;
-      width: 120px;
-      height: 180px;
       top: 5em;
-      left: 13em;
-
+      left: 18em;
     }
 
-    :nth-child(3) {
+    .card3{
       position: inherit;
-      width: 120px;
-      height: 180px;
       top: 5em;
-      right: 13em;
+      right: 18em;
     }
 
-    :nth-child(4) {
+    .card4{
       position: inherit;
-      width: 120px;
-      height: 180px;
       top: 10em;
-      right: 3em;
+      right: 10em;
     }
   }
 
@@ -154,12 +183,45 @@ section.Home {
     bottom: 0;
     margin: 0;
     padding: 0;
+    @keyframes to_up {
+      from{
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+      }
+      to{
+        opacity: 1;
+        transform: translateZ(0);
+      }
+    }
+
+    @keyframes to_left {
+      from{
+        opacity: 0;
+        transform: translate3d(30%, 0 , 0);
+      }
+      to{
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes to_right {
+      from{
+        opacity: 0;
+        transform: translate3d(-30%, 0, 0);
+      }
+      to{
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 
     :nth-child(1) {
       position: absolute;
       width: 13em;
       margin-left: -14em;
       margin-top: 7em;
+      animation: to_left 1s;
     }
 
     :nth-child(2) {
@@ -168,6 +230,7 @@ section.Home {
       margin-left: -7em;
       margin-top: -5em;
       z-index: 1;
+      animation: to_up 1s;
     }
 
     :nth-child(3) {
@@ -175,6 +238,7 @@ section.Home {
       width: 13em;
       margin-left: 1em;
       margin-top: 2em;
+      animation: to_right 1s;
     }
   }
 
@@ -187,7 +251,7 @@ section.Time {
   background-color: rgb(36, 36, 36);
   color: white;
   bottom: 0;
-  padding-top: 2.5em;
+  padding-top: 1.3em;
   align-items: center;
 
   >.time {
