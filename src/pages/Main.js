@@ -3,7 +3,6 @@ import YouTube from "react-player";
 import Clock from "react-live-clock";
 import React from "react";
 
-
 function Main() {
   const [scrollPosition, setScrollPosition] = React.useState(0);
   const updateScroll = () => {
@@ -12,6 +11,7 @@ function Main() {
   React.useEffect(()=>{
       window.addEventListener('scroll', updateScroll);
   });
+
   return (
     <div className="All">
       <header className={scrollPosition<100?"original":"change"}>
@@ -24,9 +24,18 @@ function Main() {
           >
             Home
           </li>
-          <li>Menu</li>
-          <li>Rules</li>
-          <li>Info</li>
+          <li
+          onClick={() =>
+            window.scrollTo({ top:710, left: 0, behavior: "smooth" })
+          }>Menu</li>
+          <li
+           onClick={() =>
+            window.scrollTo({ top:1430, left: 0, behavior: "smooth" })
+          }>Rules</li>
+          <li
+          onClick={() =>
+            window.scrollTo({ top:2365, left: 0, behavior: "smooth" })
+          }>Info</li>
         </ul>
       </header>
       <section className="Home">
@@ -48,20 +57,20 @@ function Main() {
 
         <div className="card">
           <div className="card1">
-            <img className="front" src={require("../img/card.jpg")} alt="card" />
-            <img className="back" src={require("../img/card1.png")} alt="card" />
+            <img className="item front" src={require("../img/card.jpg")} alt="card" />
+            <img className="item back" src={require("../img/card1.png")} alt="card" />
           </div>
           <div className="card2">
-            <img className="front" src={require("../img/card.jpg")} alt="card" />
-            <img className="back" src={require("../img/card2.png")} alt="card" />
+            <img className="item front" src={require("../img/card.jpg")} alt="card" />
+            <img className="item back" src={require("../img/card2.png")} alt="card" />
           </div>
           <div className="card3">
-            <img className="front" src={require("../img/card.jpg")} alt="card" />
-            <img className="back" src={require("../img/card3.png")} alt="card" />
+            <img className="item front" src={require("../img/card.jpg")} alt="card" />
+            <img className="item back" src={require("../img/card3.png")} alt="card" />
           </div>
           <div className="card4">
-            <img className="front" src={require("../img/card.jpg")} alt="card" />
-            <img className="back" src={require("../img/card4.png")} alt="card" />
+            <img className="item front" src={require("../img/card.jpg")} alt="card" />
+            <img className="item back" src={require("../img/card4.png")} alt="card" />
           </div>
         </div>
 
@@ -72,7 +81,7 @@ function Main() {
         </div>
       </section>
       <section className="Time">
-        <Clock format={"ddd, MMMM Do, YYYY"} ticking={true} timezone={"Rok"} />
+        <Clock className="time_day" format={"ddd, MMMM Do, YYYY"} ticking={true} timezone={"Rok"} />
         <br />
         <Clock
           className="time"
@@ -178,7 +187,7 @@ function Main() {
             </li>
           </ol>
       </section>
-      <section className="Info">
+      <section className="Info" id="info">
         <h2>Info</h2>
         <p>About "Yu-Gi-Oh!"</p>
         <div className="_1">
