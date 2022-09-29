@@ -1,6 +1,8 @@
 .All {
   display: flex;
   flex-direction: column;
+  transition-timing-function: cubc-bezier(0,0,0.2,1);
+  transition: .5s;
 }
 
 header{
@@ -554,16 +556,6 @@ section.Info {
     font-size: 0.8em;
     margin-bottom: 1em;
 
-    @keyframes stretch_line {
-      from{
-        width:1px;
-      }
-      to{
-        width:48em;
-      }
-    }
-
-
     >.img {
       margin-top: -2.5em;
       margin-right: 3em;
@@ -582,23 +574,22 @@ section.Info {
         margin-left: -17em;
         margin-top: 2.5em;
       }
-
-      &::after {
-        content: "";
-        position: absolute;
-        border-bottom: 2px solid rgb(81, 81, 81);
-        margin: -0.4em 0 0 4.1em;
-        width: 48em;
-        height: 1px;
-        display: block;
-        animation: stretch_line 1s .1s;
-      }
     }
 
     >p {
       width: 35em;
       padding-bottom: 5em;
       font-size: 0.9em;
+    }
+
+    >.line{
+      position: absolute;
+      border-bottom: 2px solid rgb(81, 81, 81);
+      width: 48em;
+      height: 1px;
+      display: block;
+      margin:13.2em 0 0 14em;
+      left:0;
     }
   }
 
@@ -611,7 +602,8 @@ section.Info {
     font-size: 0.8em;
 
     >img {
-      margin-right: -3em;
+      margin-right: -2em;
+      padding-left:2em;
       position: relative;
       z-index: 1;
       width: 15em;

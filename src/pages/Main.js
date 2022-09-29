@@ -2,6 +2,8 @@ import "../scss/Main.scss";
 import YouTube from "react-player";
 import Clock from "react-live-clock";
 import React from "react";
+import {useScrollFadeIn} from '../hooks/useScrollFadeIn';
+import {useScrollStretch} from '../hooks/useScrollStretch';
 
 function Main() {
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -11,6 +13,12 @@ function Main() {
   React.useEffect(()=>{
       window.addEventListener('scroll', updateScroll);
   });
+
+  const animated_left = useScrollFadeIn('right', 1.5, 0.5);
+  const animated_up = useScrollFadeIn('up', 1.5, 0);
+  const animated_stretch_line = useScrollStretch( 1.5, 0, 48);
+
+  
 
   return (
     <div className="All">
@@ -187,7 +195,7 @@ function Main() {
             </li>
           </ol>
       </section>
-      <section className="Info" id="info">
+      <section className="Info">
         <h2>Info</h2>
         <p>About "Yu-Gi-Oh!"</p>
         <div className="_1">
@@ -195,7 +203,7 @@ function Main() {
             <img src={require("../img/yu_1.png")} alt="charactor1" />
             <img src={require("../img/yu_2.png")} alt="charactor2" />
           </div>
-          <p>
+          <p {...animated_left}>
             The Yu-Gi-Oh! (遊☆戯☆王, Yūgiō) manga ran from 1996 to March 8,
             2004. It was created by Kazuki Takahashi, and was one of the most
             popular titles featured in Shueisha's Weekly Shōnen Jump. The manga
@@ -209,10 +217,11 @@ function Main() {
             various manga and anime series, a real-life version of the card game
             featured in the story, video games, toys, and many other products.
           </p>
+          <div className="line" {...animated_stretch_line}></div>
         </div>
         <div className="_2">
           <img src={require("../img/yu_3.png")} alt="charactor3" />
-          <p>
+          <p {...animated_up}>
             There are several games in the Yu-Gi-Oh! anime and manga that were
             originally created as fictitious games for the series and was later
             turned into real games or video games. The Yu-Gi-Oh! anime and manga
