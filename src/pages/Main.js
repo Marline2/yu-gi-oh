@@ -4,6 +4,7 @@ import Clock from "react-live-clock";
 import React from "react";
 import {useScrollFadeIn} from '../hooks/useScrollFadeIn';
 import {useScrollStretch} from '../hooks/useScrollStretch';
+import {useNavigate} from 'react-router-dom'
 
 function Main() {
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -13,6 +14,8 @@ function Main() {
   React.useEffect(()=>{
       window.addEventListener('scroll', updateScroll);
   });
+
+  const navigate = useNavigate();
 
   const animated_left = useScrollFadeIn('right', 1.5, 0.5);
   const animated_up = useScrollFadeIn('up', 1.5, 0);
@@ -103,7 +106,9 @@ function Main() {
         <h2>Menu</h2>
         <p>Click on the menu you want</p>
         <div className="clickable">
-          <div>
+          <div onClick={()=>{
+            navigate('/top_cards')
+          }}>
             <div className="img_size">
               <img src={require("../img/menu1.png")} alt="image_menu" />
             </div>
