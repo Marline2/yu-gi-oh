@@ -1,46 +1,85 @@
 .All_topCards {
   display: flex;
   flex-direction: column;
-  transition-timing-function: cubc-bezier(0,0,0.2,1);
+  transition-timing-function: cubc-bezier(0, 0, 0.2, 1);
   transition: .5s;
 
-  >header{
-    height:3.5em;
+  >header {
+    height: 3.5em;
     transition: .3s;
     background-color: rgb(36, 36, 36);
-    width:100%;
-    height:fit-content;
+    width: 100%;
+    height: fit-content;
     font-size: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color:white;
-    position:fixed;
+    color: white;
+    position: fixed;
     z-index: 10;
     box-sizing: border-box;
-    padding:0 20em;
+    padding: 0 20em;
     font-family: 'Noto Sans Mono', monospace;
-    font-weight:400;
-    
-    >h3{
-      width:fit-content;
-      min-width:5em;
+    font-weight: 400;
+
+    >h3 {
+      width: fit-content;
+      min-width: 5em;
       font-size: 1em;
     }
-    
-    >ul{
+
+    >ul {
       display: inherit;
       flex-direction: row;
-      min-width:10em;
-      >li{
-        font-size:0.8em;
+      min-width: 10em;
+
+      >li {
+        font-size: 0.8em;
         display: inline;
-        margin:0 1em;
+        margin: 0 1em;
         cursor: pointer;
-  
-        &:hover{
-          color:aqua;
+
+        &:hover {
+          color: aqua;
         }
+      }
+    }
+  }
+
+  >section.Main {
+    width: 100%;
+    background-color: rgb(32, 51, 69);
+    height: 10em;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    >img {
+      width: 80%;
+      height: 35em;
+      text-align: center;
+      margin-left: 8em;
+      margin-top: -7.5em;
+      position: absolute;
+      z-index: 0;
+      filter:brightness(70%);
+    }
+
+    >.texts {
+      font-family: 'Abyssinica SIL', serif;
+      z-index: 1;
+      color:white;
+      text-shadow: -2px 0 rgb(93, 93, 93), 0 2px rgb(93, 93, 93), 2px 0 rgb(93, 93, 93), 0 -2px rgb(93, 93, 93);
+      >h2 {
+        font-size: 2em;
+        font-weight: 700;
+        margin-top: 2em;
+      }
+      >p {
+        font-size:0.6em;
+        margin-top:-2em;
       }
     }
   }
