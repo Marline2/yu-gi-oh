@@ -1,6 +1,8 @@
 import axios from "axios";
+import cheerio from 'cheerio';
 import React from "react";
 import "../scss/TopCards.scss";
+
 
 function TopCards() {
   const [db, setDB] = React.useState(null);
@@ -10,10 +12,14 @@ function TopCards() {
     setDB([res.data[0].database_version,res.data[0].last_update])
   }
 
-  console.log(db)
+  const loadDB = async ()=>{
+    const res = await axios.get('https://ygoprodeck.com/top/')
+    console.log(res)
+  }
 
   React.useEffect(()=>{
-    loadDBVersion()
+    loadDBVersion();
+    loadDB();
   },[])
   return (
     <div className="All_topCards">
@@ -31,6 +37,9 @@ function TopCards() {
         <div className="texts">
           <h2>Top Cards</h2>
           <p>These are the most commonly used cards in the Yu-Gi-Oh! TCG.</p>
+          {db!== null?(
+            <h4>Database Version : {db[0]} <br/> Last Update : {db[1]}</h4>
+          ): null}
         </div>
       </section>
     </div>
