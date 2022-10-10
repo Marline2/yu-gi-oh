@@ -1,5 +1,4 @@
 import axios from "axios";
-import cheerio from 'cheerio';
 import React from "react";
 import "../scss/TopCards.scss";
 
@@ -13,9 +12,19 @@ function TopCards() {
   }
 
   const loadDB = async ()=>{
-    const res = await axios.get('https://ygoprodeck.com/top/')
-    console.log(res)
+    const res = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?misc=yes')
+    let list = [];
+    console.log(res.data.data)
+    res.data.data.map(v=>{
+      let vote = v.misc_info[0].upvotes - v.misc_info[0].downvotes
+        if(vote >= 500){
+          list.push({vote, v})
+        }
+    })
+    console.log(list)
+    //리스트 숫자순서 바꾸기
   }
+
 
   React.useEffect(()=>{
     loadDBVersion();
