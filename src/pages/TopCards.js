@@ -2,34 +2,43 @@ import axios from "axios";
 import React from "react";
 import "../scss/TopCards.scss";
 
-
 function TopCards() {
   const [db, setDB] = React.useState(null);
+  const [list, setList] = React.useState([]);
 
-  const loadDBVersion = async ()=>{
-    const res = await axios.get("https://db.ygoprodeck.com/api/v7/checkDBVer.php")
-    setDB([res.data[0].database_version,res.data[0].last_update])
-  }
+  const prize_list = list.slice(0, 3);
 
-  const loadDB = async ()=>{
-    const res = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?misc=yes')
-    let list = [];
-    console.log(res.data.data)
-    res.data.data.map(v=>{
-      let vote = v.misc_info[0].upvotes - v.misc_info[0].downvotes
-        if(vote >= 500){
-          list.push({vote, v})
-        }
-    })
-    console.log(list)
-    //리스트 숫자순서 바꾸기
-  }
+  const loadDBVersion = async () => {
+    const res = await axios.get(
+      "https://db.ygoprodeck.com/api/v7/checkDBVer.php"
+    );
+    setDB([res.data[0].database_version, res.data[0].last_update]);
+  };
 
+  const loadDB = async () => {
+    let lists = [];
+    const res = await axios.get(
+      "https://db.ygoprodeck.com/api/v7/cardinfo.php?misc=yes"
+    );
+    res.data.data.map((v) => {
+      let vote = v.misc_info[0].upvotes - v.misc_info[0].downvotes;
+      if (vote >= 300) {
+        lists.push({ vote, v });
+      }
+    });
 
-  React.useEffect(()=>{
+    lists.sort((a, b) => {
+      return b.vote - a.vote;
+    });
+
+    setList(lists);
+  };
+  console.log(list);
+
+  React.useEffect(() => {
     loadDBVersion();
     loadDB();
-  },[])
+  }, []);
   return (
     <div className="All_topCards">
       <header>
@@ -46,10 +55,50 @@ function TopCards() {
         <div className="texts">
           <h2>Top Cards</h2>
           <p>These are the most commonly used cards in the Yu-Gi-Oh! TCG.</p>
-          {db!== null?(
-            <h4>Database Version : {db[0]} <br/> Last Update : {db[1]}</h4>
-          ): null}
+          {db !== null ? (
+            <h4>
+              Database Version : {db[0]} <br /> Last Update : {db[1]}
+            </h4>
+          ) : null}
         </div>
+      </section>
+      <section className="Podium">
+        {prize_list.map((value, idx) => {
+          if (idx === 0) {
+            return (
+              <div className="First" key={idx}>
+                <h4>1st</h4>
+                <p>Upvote : {value.vote}</p>
+                <div className="in">
+                  <img src={value.v.card_images[0].image_url} alt="top_cards" />
+                  <h3>{value.v.name}</h3>
+                </div>
+              </div>
+            );
+          } else if (idx === 1) {
+            return (
+              <div className="Second" key={idx}>
+                <h4>2st</h4>
+                <p>Upvote : {value.vote}</p>
+                <div className="in">
+                  <img src={value.v.card_images[0].image_url} alt="top_cards" />
+                  <h3>{value.v.name}</h3>
+                </div>
+              </div>
+            );
+          } else if (idx === 2) {
+            return (
+              <div className="Thrid" key={idx}>
+                <h4>3st</h4>
+                <p>Upvote : {value.vote}</p>
+                <div className="in">
+                  <img src={value.v.card_images[0].image_url} alt="top_cards" />
+                  <h3>{value.v.name}</h3>
+                </div>
+              </div>
+            );
+          }
+        })}
       </section>
     </div>
   );
