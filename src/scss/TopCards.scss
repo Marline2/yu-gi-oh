@@ -96,12 +96,12 @@
     flex-direction: row;
     text-align: center;
     justify-content: center;
-
     >*{
       display: flex;
       flex-direction: column;
       align-items: center;
       width:10em;
+      background:linear-gradient(white,rgb(254, 255, 244), rgb(227, 227, 227), rgb(227, 227, 227),rgb(227, 227, 227));
 
       >p{
         font-size:.5em;
@@ -110,7 +110,6 @@
       }
 
       >h4{
-        margin-top: 0.3em;
         margin-bottom:0.5em;
       }
 
@@ -126,17 +125,18 @@
           color:black;
         }
         >img{
+          margin-top:2em;
           width:8em;
           height:10em;
         }
       }
     }
 
-
     >.First{
       font-size:1.2em;
       color:gold;
       order:1;
+    
     }
 
     >.Second{
