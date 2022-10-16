@@ -64,94 +64,89 @@
       margin-top: -7.5em;
       position: absolute;
       z-index: 0;
-      filter:brightness(70%);
+      filter: brightness(70%);
     }
 
     >.texts {
       font-family: 'Abyssinica SIL', serif;
       z-index: 1;
-      color:white;
+      color: white;
       text-shadow: -2px 0 rgb(93, 93, 93), 0 2px rgb(93, 93, 93), 2px 0 rgb(93, 93, 93), 0 -2px rgb(93, 93, 93);
+
       >h2 {
         font-size: 2em;
         font-weight: 700;
         margin-top: 2em;
       }
+
       >p {
-        font-size:0.6em;
-        margin-top:-2em;
+        font-size: 0.6em;
+        margin-top: -2em;
       }
 
-      >h4{
+      >h4 {
         font-family: 'Noto Sans Mono', monospace;
-        font-size:0.5em;
+        font-size: 0.5em;
       }
     }
   }
 
-  >section.Podium{
+  >section.Podium {
     display: flex;
-    width:100vw;
+    width: 100vw;
     margin-top: 1em;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
-    >*{
+
+    >.Rank {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      margin: 1em 0 -0.5em 5em;
       align-items: center;
-      width:10em;
-      background:linear-gradient(white,rgb(254, 255, 244), rgb(227, 227, 227), rgb(227, 227, 227),rgb(227, 227, 227));
+      border: 1px solid rgb(227, 227, 227);
+      width: 80vw;
+      padding: 0.5em;
+      border-radius: 100px;
+      height: fit-content;
 
-      >p{
-        font-size:.5em;
-        color:black;
-        margin-top:-0.5em;
+      >h4 {
+        margin: 1em;
       }
 
-      >h4{
-        margin-bottom:0.5em;
+      >h3 {
+        font-size: 0.6em;
       }
 
-      >.in{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: rgb(227, 227, 227);
-        width:10em;
-        >h3{
-          width:13em;
-          font-size:0.6em;
-          color:black;
+      >img {
+        width: 60px;
+        height: 80px;
+        margin: 0 1em 0 0.5em;
+      }
+
+      >p {
+        font-size: 0.7em; 
+        margin-left: auto;
+        margin-right:1em;
+      }
+
+      &:nth-child(1) {
+        >h4 {
+          color: gold;
         }
-        >img{
-          margin-top:2em;
-          width:8em;
-          height:10em;
+      }
+
+      &:nth-child(2) {
+        >h4 {
+          color: silver;
+        }
+      }
+
+      &:nth-child(3) {
+        >h4 {
+          color: rgb(107, 72, 48);
         }
       }
     }
-
-    >.First{
-      font-size:1.2em;
-      color:gold;
-      order:1;
-    
-    }
-
-    >.Second{
-      margin-top: 2em;
-      font-size:1.2em;
-      color:silver;
-      order:0;
-    }
-
-    >.Thrid{
-      order:2;
-      margin-top: 4em;
-      font-size:1.2em;
-      color:rgb(67, 47, 47);
-    }
-    
   }
 }

@@ -64,40 +64,14 @@ function TopCards() {
       </section>
       <section className="Podium">
         {prize_list.map((value, idx) => {
-          if (idx === 0) {
             return (
-              <div className="First" key={idx}>
-                <h4>1st</h4>
+              <div className="Rank" key={idx}>
+                <h4>{idx+1}st</h4>
+                <img src={value.v.card_images[0].image_url} alt="top_cards" />
+                <h3>{value.v.name}</h3>
                 <p>Upvote : {value.vote}</p>
-                <div className="in">
-                  <img src={value.v.card_images[0].image_url} alt="top_cards" />
-                  <h3>{value.v.name}</h3>
-                </div>
               </div>
             );
-          } else if (idx === 1) {
-            return (
-              <div className="Second" key={idx}>
-                <h4>2st</h4>
-                <p>Upvote : {value.vote}</p>
-                <div className="in">
-                  <img src={value.v.card_images[0].image_url} alt="top_cards" />
-                  <h3>{value.v.name}</h3>
-                </div>
-              </div>
-            );
-          } else if (idx === 2) {
-            return (
-              <div className="Thrid" key={idx}>
-                <h4>3st</h4>
-                <p>Upvote : {value.vote}</p>
-                <div className="in">
-                  <img src={value.v.card_images[0].image_url} alt="top_cards" />
-                  <h3>{value.v.name}</h3>
-                </div>
-              </div>
-            );
-          }
         })}
       </section>
     </div>
