@@ -1,0 +1,58 @@
+
+
+header.Menu {
+  height: 3.5em;
+  transition: .3s;
+  background-color: rgb(36, 36, 36);
+  width: 100%;
+  height: fit-content;
+  font-size: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  position: fixed;
+  z-index: 10;
+  box-sizing: border-box;
+  padding: 0 20em;
+  font-family: 'Noto Sans Mono', monospace;
+  font-weight: 400;
+
+  >h3 {
+    width: fit-content;
+    min-width: 5em;
+    font-size: 1em;
+  }
+
+  >ul {
+    display: inherit;
+    flex-direction: row;
+    min-width: 10em;
+
+    >li {
+      font-size: 0.8em;
+      display: inline;
+      margin: 0 1.4em;
+      cursor: pointer;
+      position: relative;
+
+      &:hover {
+        color: aqua;
+      }
+
+      &::after {
+        content: "";
+        height: 12px;
+        width: 1px;
+        background-color: #b8b8b8;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 19px;
+      }
+      &:last-child::after{
+        display: none;
+      }
+    }
+  }
+}
