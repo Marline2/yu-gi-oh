@@ -1,23 +1,27 @@
 import axios from "axios";
 import React from "react";
 import MenuHeader from "../components/MenuHeader";
+import Spinner from "../components/Spinner";
 import "../scss/TopCards.scss";
 
 function TopCards() {
   const [db, setDB] = React.useState(null);
   const [list, setList] = React.useState([]);
   const [base, setBase] = React.useState(0);
+  const [load, setLoad] = React.useState(true);
 
-  let bar_width = 0;
-
-  const prize_list = list.slice(0, 3);
-  console.log(prize_list[0])
+  let prize_list = [];
 
   const loadDBVersion = async () => {
-    const res = await axios.get(
-      "https://db.ygoprodeck.com/api/v7/checkDBVer.php"
-    );
-    setDB([res.data[0].database_version, res.data[0].last_update]);
+    try {
+      const res = await axios.get(
+        "https://db.ygoprodeck.com/api/v7/checkDBVer.php"
+      );
+      setDB([res.data[0].database_version, res.data[0].last_update]);
+    } catch (err) {
+      console.log(err);
+      throw new Error("Network response was not ok.");
+    }
   };
 
   const loadDB = async () => {
@@ -26,12 +30,9 @@ function TopCards() {
       const res = await axios.get(
         "https://db.ygoprodeck.com/api/v7/cardinfo.php?misc=yes"
       );
-      res.data.data.map((v) => {
+      await res?.data.data.map((v) => {
         let vote = v.misc_info[0].upvotes - v.misc_info[0].downvotes;
-        if (vote >= 300) {
-          lists.push({ vote, v });
-        }
-        return vote;
+        return (vote >= 300? lists.push({ vote, v }) : v )
       });
 
       lists.sort((a, b) => {
@@ -39,17 +40,20 @@ function TopCards() {
       });
 
       setList(lists);
-      console.log(lists)
-    } catch {
+      console.log(list);
+      prize_list = list.slice(0, 3);
+      setBase(prize_list[0].vote);
+      setLoad(false);
+    } catch (err) {
+      console.log(err);
       throw new Error("Network response was not ok.");
     }
   };
-  console.log(list);
 
   React.useEffect(() => {
     loadDBVersion();
     loadDB();
-  }, []);
+  },[]);
   return (
     <div className="All_topCards">
       <MenuHeader />
@@ -66,40 +70,32 @@ function TopCards() {
         </div>
       </section>
       <section className="Podium">
-        {prize_list.map((value, idx) => {
-          if (idx === 0) {
+        {!load ? (
+          prize_list.map((value, idx) => {
             return (
               <div className="Rank" key={idx}>
                 <h4>{idx + 1}st</h4>
                 <img src={value.v.card_images[0].image_url} alt="top_cards" />
-                <h3>{value.v.name}</h3>
-                <p>Upvote : {value.vote}</p>
-                <div className="progressBar">
-                  <div
-                    className="highLight"
-                    style={{ width: `${bar_width}%` }}
-                  />
+                <div className="col">
+                  <h3>{value.v.name}</h3>
+                  <ProgressRank width={value.vote} base={base} />
                 </div>
               </div>
             );
-          } else {
-            return (
-              <div className="Rank" key={idx}>
-                <h4>{idx + 1}st</h4>
-                <img src={value.v.card_images[0].image_url} alt="top_cards" />
-                <h3>{value.v.name}</h3>
-                <p>Upvote : {value.vote}</p>
-                <div className="progressBar">
-                  <div
-                    className="highLight"
-                    style={{ width: `${bar_width}%` }}
-                  />
-                </div>
-              </div>
-            );
-          }
-        })}
+          })
+        ) : <Spinner />}
       </section>
+    </div>
+  );
+}
+
+function ProgressRank(props) {
+  const bar_width = (props.width / (props.base + 500)) * 100;
+
+  return (
+    <div className="progressBar">
+      <div className="highLight" style={{ width: `${bar_width}%` }} />
+      <p>Upvote : {props.width}</p>
     </div>
   );
 }

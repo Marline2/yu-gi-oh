@@ -11,6 +11,7 @@ function Main() {
   const updateScroll = () => {
       setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   }
+
   React.useEffect(()=>{
       window.addEventListener('scroll', updateScroll);
   });

@@ -1,7 +1,6 @@
 
 
 header.Menu {
-  height: 3.5em;
   transition: .3s;
   background-color: rgb(36, 36, 36);
   width: 100%;
@@ -14,7 +13,7 @@ header.Menu {
   position: fixed;
   z-index: 10;
   box-sizing: border-box;
-  padding: 0 20em;
+  padding: 0 15em;
   font-family: 'Noto Sans Mono', monospace;
   font-weight: 400;
 
