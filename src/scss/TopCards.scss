@@ -60,7 +60,7 @@
       display: flex;
       flex-direction: row;
       margin: 1em 0 -0.5em 5em;
-      width: 80vw;
+      width: 60vw;
       padding: 0.5em;
       border-radius: 100px;
       height: fit-content;
@@ -82,8 +82,17 @@
           .highLight{
             background: #FCEFAC;
             height: 20px;
-            transition: width 1s;
+            animation: width_bar 2s;
             border-radius: 10px;
+
+            @keyframes width_bar {
+              from {
+                width: 0;
+              }
+              to {
+                width:width;
+              }
+            }
           }
 
           >p {
